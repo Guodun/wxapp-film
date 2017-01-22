@@ -1,0 +1,7 @@
+/**app.wxss**/
+page{
+  display: block;
+  background-color: #fff;
+  font-family: "微软雅黑";
+  font-size: 28rpx;
+}

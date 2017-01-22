@@ -1,0 +1,57 @@
+<view class="movieTopBanner">
+    <view class="blurBackGround"></view>
+    <view class= "backGround"></view>
+    <view class="movieImage">
+        <image class="filmImag" src="{{imgeUrl}}"></image>
+        <view class="colletMovie">收藏</view>
+    </view>
+    <view class="movieTest">
+        <view class="movieName">星球大战外传：侠盗一号</view>
+        <view class="movieData">
+            <view class="movieDirector">导演：加里斯</view>
+            <view class="movieActor">演员：菲丽希缇·琼斯/迭戈·鲁纳/甄子丹</view>
+            <view class="movieRating">豆瓣评分：7.4分</view>
+            <view class="movieYear">上映年份：2016年</view>       
+        </view>
+    </view>
+</view>
+<view class="movieWatcher">
+    <view class="watched">
+        <view class="movieNumber">57771</view>
+        <view class="movieWatch">看过</view>
+    </view>
+    <view class="wanna">
+        <view class="movieNumber">57771</view>
+        <view class="movieWatch">想看</view>
+    </view>
+    <view class="ratingCount">
+        <view class="movieNumber">57771</view>
+        <view class="movieWatch">评分人数</view>
+    </view>
+</view>
+<view class="moviesInfo">
+    <view class="movieIntroduction">
+        <view class="infoTitle">剧情简介</view>
+        <view class="introduction">{{introduce}}</view>
+    </view>
+    <view class="movieActor">
+        <view class="infoTitle">导演/演员</view>
+        <view class="moviesPeople">
+            <block wx:for="{{pepleImages}}">
+                <view class="moviePeople" bindtap="toPersonDetail">
+                    <image class="peopleImages" src="{{item}}"></image>
+                    <view class="actor">导演</view>
+                    <view class="actor">Guodun</view>
+                </view>                             
+            </block>
+        </view>  
+    </view>
+    <view class="mvoieTips">
+        <view class="infoTitle">标签</view>
+        <view class="movieSorts">
+            <view class="movieSort" >动作</view>
+            <view class="movieSort" >动作</view>
+            <view class="movieSort" >动作</view>
+        </view>
+    </view>
+</view>

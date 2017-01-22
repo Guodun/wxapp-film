@@ -1,0 +1,21 @@
+<template name="moviesList">
+<view class="contain">
+    <block wx:for="{{moviesData}}">
+    <view class="movies">
+        <view class="movieImages" bindtap="tofilmDetail">
+            <image class="movieImage" src="{{item.images.large}}"></image>
+            <view class="movieRating" wx:if="{{item.rating.average == 0}}"> 暂无评分</view>
+            <view class="movieRating" wx:else>{{item.rating.average}}分</view>
+        </view>   
+        <view class="movieInfo">
+            <text>{{item.title}}</text>
+            <view class="movieTips">
+                <block wx:for="{{item.genres}}">
+                    <view class="movieTip">{{item}}</view>
+                </block>
+            </view>
+        </view>
+    </view>   
+    </block>
+</view>
+</template>

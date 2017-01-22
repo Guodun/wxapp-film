@@ -1,0 +1,147 @@
+page{
+    width:100%;
+    font-family: "微软雅黑";
+    font-size: 28rpx;
+}
+.movieTopBanner{
+    width:100%;
+    height:600rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.blurBackGround{
+    width: 100%;
+    height: 600rpx;
+    background-image: url("https://img5.doubanio.com/view/movie_poster_cover/lpst/public/p2403049086.jpg");
+    background-size: cover;
+    filter:blur(10px);
+    position: absolute;
+    z-index: 998;
+}
+.movieImage{
+    width: 300rpx;
+    z-index: 1000;
+}
+.filmImag{
+    width:300rpx;
+    height:420rpx;
+    border-radius:10rpx;
+    margin-top:72rpx;
+    box-shadow: 0 30rpx 150rpx rgba(255, 255, 255, .3);
+}
+.movieTest{
+    z-index:1001;
+    width:300rpx;
+    margin-top:72rpx;
+    color:white;
+    padding:0 8px;
+    margin-left:30rpx;
+}
+.movieName{
+    font-size:38rpx;
+    margin-bottom:22rpx;
+}
+.backGround{
+    width: 100%;
+    height: 600rpx;
+    position: absolute;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.movieDirector{
+    margin-bottom: 15rpx;
+}
+.movieActor{
+    margin-bottom: 15rpx;
+}
+.movieRating{
+    margin-bottom: 15rpx;
+}
+.movieYear{
+    margin-bottom: 15rpx;
+}
+.movieData{
+    margin-top: 20rpx;
+}
+.colletMovie{
+    border:1px solid white;
+    width:111rpx;
+    color:white;
+    border-radius:24rpx;
+    text-align:center;
+    margin: 15rpx auto;
+}
+.movieWatcher{
+    width: 100%;
+    height: 180rpx;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+    text-align: center;
+}
+.watched{
+    flex-grow: 1;
+    border-right: 1px solid #eee;
+    
+}
+.wanna{
+    flex-grow: 1;
+    border-right: 1px solid #eee;
+}
+.ratingCount{
+    flex-grow: 1;
+}
+.movieNumber{
+    font-size: 40rpx;
+    font-weight: 100;
+    color: #444;
+}
+.movieWatch{
+    color: gray;
+}
+.moviesInfo{
+    padding: 40rpx 40rpx;
+    color: gray
+}
+.infoTitle{
+    margin-bottom: 15rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    color:#444;
+}
+.introduction{
+    margin-bottom: 50rpx;
+    color: #666;
+    line-height: 1.5;
+    text-align: justify;
+}
+.moviesPeople{
+    display:flex;
+    overflow-x:scroll;
+}
+.peopleImages{
+    width:300rpx;
+    height: 420rpx;
+}
+.moviePeople{
+    margin-right: 18rpx;
+}
+.actor{
+    width: 100%;
+    text-align: center;
+}
+.movieSorts{
+   display: flex;
+   flex-direction: row;
+}
+.movieSort{
+    padding: 5rpx;
+    margin-right: 15rpx;
+    border: 1px solid gray;
+    border-radius: 10rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    text-align: center;
+}
