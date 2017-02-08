@@ -4,11 +4,30 @@ var config = require('../../utils/config');
 Page({
   data:{
     moviesData:[],
-    start: 0
+    start: 0,
+    hasMore: true,
+    showLoading: true
   },
   onLoad:function(options){
     // 生命周期函数--监听页面加载
-    douban.getMoviesData.call(this, config.apiList.top, this.data.start, config.count);
+    var searchword = Object.keys(options).toString();
+    wx.showToast({
+        title: '玩命加载中..',
+        icon: 'loading',
+        duration: 10000,
+        success: function(){
+            console.log('--------loadingsuccess-------')
+        },
+        fail: function() {
+            console.log('----loadingfail-----')
+        },
+        complete: function() {
+            console.log('-----loadingcomplete-----')
+            wx.hideToast();
+        }
+    })  
+    douban.searchFilm.call(this, config.apiList.search, searchword, config.count);
+    debugger;
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
@@ -16,7 +35,6 @@ Page({
   },
   onShow:function(){
     // 生命周期函数--监听页面显示
-
   },
   onHide:function(){
     // 生命周期函数--监听页面隐藏
@@ -32,19 +50,6 @@ Page({
   },
   onReachBottom: function() {
     // 页面上拉触底事件的处理函数
-    var page = this;
-    var start = page.data.start;
-    wx.showToast({
-      title: 'loading...',
-      icon: 'loading',
-      duration: 4000
-    })
-    console.log('-----------------onReachBottom----------------')
-    douban.getMoviesData.call(page, config.apiList.top, start, config.count);
-    page.setData({
-      start: (start + 5)
-    })
-    debugger;
 
   },
   onShareAppMessage: function() {
@@ -55,10 +60,9 @@ Page({
       path: 'path' // 分享路径
     }
   },
-  tofilmDetail: function(res){
-    var movieId = res.currentTarget.id
+  tofilmDetail: function(){
     wx.navigateTo({
-      url: '../filmDetail/filmDetail?' + movieId,
+      url: '../filmDetail/filmDetail',
       success: function(res){
         console.log(res)
       },

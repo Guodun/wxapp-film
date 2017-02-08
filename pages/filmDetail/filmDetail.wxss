@@ -13,7 +13,6 @@ page{
 .blurBackGround{
     width: 100%;
     height: 600rpx;
-    background-image: url("https://img5.doubanio.com/view/movie_poster_cover/lpst/public/p2403049086.jpg");
     background-size: cover;
     filter:blur(10px);
     position: absolute;

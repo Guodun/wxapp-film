@@ -1,0 +1,25 @@
+@import "../../template/template.wxss";
+
+page{
+    width: 100%;
+}
+.search{
+    width:100%;
+    height:60rpx;
+    background-color:#eee;
+    text-align:center;
+    line-height:60rpx;
+    padding:12rpx 0;
+    box-shadow: 0rpx 10rpx 60rpx rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+.searchMovie{
+    width: 95%;
+    height: 60rpx;
+    background-color: white;
+    margin: auto;
+    border-radius: 8rpx;
+}
+.slide-image{
+    width: 100%;
+}

@@ -2,7 +2,7 @@
 <view class="contain">
     <block wx:for="{{moviesData}}">
     <view class="movies">
-        <view class="movieImages" bindtap="tofilmDetail">
+        <view class="movieImages" bindtap="tofilmDetail" id="{{item.id}}">
             <image class="movieImage" src="{{item.images.large}}"></image>
             <view class="movieRating" wx:if="{{item.rating.average == 0}}"> 暂无评分</view>
             <view class="movieRating" wx:else>{{item.rating.average}}分</view>

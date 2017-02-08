@@ -1,20 +1,20 @@
 <view class="bg-header">
-    <view class="bg-image"></view>
+    <view class="bg-image" style="background-image: url({{filmPersonData.avatars.large}})"></view>
     <view class="bg-cover"></view>
     <view class="actorInfos" >
-        <view class="position actorPicture"></view>
-        <view class="position Chinesename">chinies name</view>
-        <view class="position">name</view>
-        <view class="position">contry</view>
+        <view class="position actorPicture" style="background-image: url({{filmPersonData.avatars.large}})"></view>
+        <view class="position Chinesename">{{filmPersonData.name}}</view>
+        <view class="position">{{filmPersonData.name_en}}</view>
+        <view class="position">{{filmPersonData.born_place}}</view>
     </view>
 </view>
 <view class="collect">收藏</view> 
 <view class="contain">
-    <block wx:for="{{pepleImages}}">
-        <view class="moviesInfo">
-            <image class="moviesImage" src="{{item}}"></image>
-            <view class="movieName">都市女孩 第三季</view>
-            <view class="moviePost">担任：演员</view>
+    <block wx:for="{{filmPersonData.works}}">
+        <view class="moviesInfo" bindtap="tofilmDetail" id="{{item.subject.id}}">
+            <image class="moviesImage" src="{{item.subject.images.large}}"></image>
+            <view class="movieName">{{item.subject.title}}</view>
+            <view class="moviePost">担任：{{item.roles["0"]}}</view>
         </view>
     </block>
 </view>

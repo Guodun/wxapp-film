@@ -1,18 +1,29 @@
+var douban = require('../../utils/fetch');
+var config = require('../../utils/config');
+var url = 'https://static.sesine.com/wechat-weapp-movie'
+
 Page({
   data:{
     indicatorDots: true,
     autoplay: true,
-    imagUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+    bannerList: [
+        {type:'film', id: '26683290', imgUrl: url + '/images/banner_1.jpg'},
+        {type:'film', id: '25793398', imgUrl: url + '/images/banner_2.jpg'},
+        {type:'film', id: '26630781', imgUrl: url + '/images/banner_3.jpg'},
+        {type:'film', id: '26415200', imgUrl: url + '/images/banner_4.jpg'},
+        {type:'film', id: '3025375', imgUrl: url + '/images/banner_5.jpg'}
     ],
-    movieImag:'https://img5.doubanio.com/view/movie_poster_cover/lpst/public/p2403049086.jpg',
-    moviesData:[] //
+    moviesData:[], 
+    start: 0
   },
   onLoad:function(options){
     // 生命周期函数--监听页面加载
-    this.getMoviesData();
+    wx.showToast({
+      title: 'loading...',
+      icon: 'loading',
+      duration: 4000
+    })
+    douban.getMoviesData.call(this, config.apiList.popular, this.data.start, config.count);
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
@@ -36,7 +47,14 @@ Page({
   },
   onReachBottom: function() {
     // 页面上拉触底事件的处理函数
-
+    var page = this;
+    wx.showToast({
+      title: 'loading...',
+      icon: 'loading',
+      duration: 4000
+    })
+    console.log('-----------------onReachBottom----------------')
+    douban.getMoviesData.call(page, config.apiList.popular, page.data.start, config.count);
   },
   onShareAppMessage: function() {
     // 用户点击右上角分享
@@ -46,39 +64,11 @@ Page({
       path: 'path' // 分享路径
     }
   },
-  getMoviesData: function(){
-      var page = this;
-      wx.request({
-        url: 'https://api.douban.com/v2/movie/in_theaters',
-        data: {},
-        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-        header: {
-            'Content-Type': 'json'
-        }, // 设置请求的 header
-        success: function(res){
-          // success
-          wx.showToast({
-            title: '玩命加载中..',
-            icon: 'loading',
-            duration: 5000
-          }),
-          console.log(res);
-          page.setData({
-              moviesData: res.data.subjects
-          })
-          wx.hideToast();
-        },
-        fail: function() {
-          // fail
-        },
-        complete: function() {
-          // complete
-        }
-      })
-  },
-  tofilmDetail: function(){
-    wx.redirectTo({
-      url: '../filmDetail/filmDetail',
+  //跳转到电影详情页面
+  tofilmDetail: function(res){
+    var movieId = res.currentTarget.id
+    wx.navigateTo({
+      url: '../filmDetail/filmDetail?' + movieId,
       success: function(res){
         console.log(res)
       },
@@ -87,6 +77,20 @@ Page({
       },
       complete: function() {
         console.log('complate')
+      }
+    })
+  },
+  toSearchView: function(){
+    wx.navigateTo({
+      url: '../search/search',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
       }
     })
   }

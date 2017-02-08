@@ -1,21 +1,22 @@
+var douban = require('../../utils/fetch');
+var config = require('../../utils/config');
+
 Page({
   data:{
-    pepleImages: [
-      "https://img3.doubanio.com/img/celebrity/large/42373.jpg",
-      "https://img3.doubanio.com/img/celebrity/large/36123.jpg",
-      "https://img3.doubanio.com/img/celebrity/large/10695.jpg",
-      "https://img3.doubanio.com/img/celebrity/large/5681.jpg",
-      "https://img3.doubanio.com/img/celebrity/large/10695.jpg",
-      "https://img3.doubanio.com/img/celebrity/large/5681.jpg"
-    ],
+    filmPersonData: {}
   },
   onLoad:function(options){
     // 生命周期函数--监听页面加载
-    
+    var page = this;
+    var personId = Object.keys(options).toString();
+    douban.fetchPersonDetail.call(page, config.apiList.personDetail, personId, function cb(data){
+      page.setData({filmPersonData: data});
+      console.log(data);
+    })    
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
-   
+   s
   },
   onShow:function(){
     // 生命周期函数--监听页面显示
@@ -43,5 +44,20 @@ Page({
       desc: 'desc', // 分享描述
       path: 'path' // 分享路径
     }
+  },
+  tofilmDetail: function(res){
+    var moviesId = res.currentTarget.id;
+    wx.navigateTo({
+      url: '../filmDetail/filmDetail?' + moviesId,
+      success: function(res){
+        console.log(res)
+      },
+      fail: function() {
+        console.log('fail')
+      },
+      complete: function() {
+        console.log('complate')
+      }
+    })
   }
 })

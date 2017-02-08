@@ -1,1 +1,27 @@
-<view>search</view>
+<view class="contain">
+    <form class="search" bindsubmit="formSubmit">
+        <view class="searchBorder">
+            <view class="tapButton">tap</view>
+            <input class="searchInput" placeholder-style="line-height: 80rpx " placeholder="searchMovies" name="input"/>
+            <button class="searchButton" formType="submit" bindtap="toSearchReasultView">search</button>
+        </view>
+    </form>
+    <view class="hotTag">
+        <view class="hotSearchs">
+            <view class="searchTitle">热门搜索</view>
+            <view class="searchView" >
+                <block wx:for="{{hotSearch}}">
+                    <view class="hotSearch">{{item}}</view>
+                </block>
+            </view>
+        </view>
+        <view class="hotSearchs">
+            <view class="searchTitle">热门标签</view>
+            <view class="searchView" >
+                <block wx:for="{{hotSearch}}">
+                    <view class="hotSearch">{{item}}</view>
+                </block>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,5 +1,10 @@
 Page({
   data:{
+    hotSearch: [
+      "功夫熊猫","摆渡人","长城","我不是潘金莲","这个杀手不太冷","卢德水","我在故宫修文物","你的名字","功夫熊猫"
+    ],
+    hotTips: ["动作","喜剧","爱情","悬疑"],
+    searchId:""
   },
   onLoad:function(options){
     // 生命周期函数--监听页面加载
@@ -29,5 +34,26 @@ Page({
       desc: 'desc', // 分享描述
       path: 'path' // 分享路径
     }
+  },
+  formSubmit: function(e){
+    console.log(e);
+    this.setData({
+      searchId: e.detail.value.input
+    })
+  },
+  toSearchReasultView: function(){
+    var id = this.data.searchId;
+    wx.navigateTo({
+      url: '../searchReasult/searchReasult?'+ id,
+      success: function(res){
+        console.log(res)
+      },
+      fail: function() {
+        console.log('fail')
+      },
+      complete: function() {
+        console.log('complate')
+      }
+    })
   }
 })

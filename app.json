@@ -7,7 +7,8 @@
     "pages/filmDetail/filmDetail",
     "pages/personDetail/personDetail",
     "pages/my/my",
-    "pages/personInfo/personInfo"
+    "pages/personInfo/personInfo",
+    "pages/searchReasult/searchReasult"
   ],
   "window": {
     "navigationBarBackgroundColor": "#47a86c",
