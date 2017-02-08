@@ -1,0 +1,8 @@
+<view class="contain">
+    <block wx:for="{{skinList}}">
+        <view class="skin">
+            <image class="skin-image {{nowImage == item.imgUrl ? 'skin-border' : '' }}" src="{{item.imgUrl}}" bindtap="changeSkin" data-image="{{item.imgUrl}}"></image>
+            <view class="skin-name">{{item.title}}</view>
+        </view>
+    </block>
+</view>

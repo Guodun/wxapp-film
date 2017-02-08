@@ -9,6 +9,11 @@ Page({
   },
   onLoad:function(options){
     // 生命周期函数--监听页面加载
+    wx.showToast({
+      title: 'loading...',
+      icon: 'loading',
+      duration: 4000
+    })
     var moviesId = Object.keys(options).toString();
     var page = this;
     douban.fetchFilmDetail.call(page, config.apiList.filmDetail, moviesId, function cb(data){
@@ -20,7 +25,7 @@ Page({
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
-
+    wx.hideToast();
   },
   onShow:function(){
     // 生命周期函数--监听页面显示

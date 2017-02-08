@@ -8,7 +8,8 @@
     "pages/personDetail/personDetail",
     "pages/my/my",
     "pages/personInfo/personInfo",
-    "pages/searchReasult/searchReasult"
+    "pages/searchReasult/searchReasult",
+    "pages/skin/skin"
   ],
   "window": {
     "navigationBarBackgroundColor": "#47a86c",

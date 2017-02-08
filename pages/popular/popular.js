@@ -27,7 +27,6 @@ Page({
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
-    wx.hideToast();
   },
   onShow:function(){
     // 生命周期函数--监听页面显示
@@ -48,13 +47,17 @@ Page({
   onReachBottom: function() {
     // 页面上拉触底事件的处理函数
     var page = this;
+    var start = page.data.start + 5;
     wx.showToast({
       title: 'loading...',
       icon: 'loading',
       duration: 4000
     })
     console.log('-----------------onReachBottom----------------')
-    douban.getMoviesData.call(page, config.apiList.popular, page.data.start, config.count);
+    douban.getMoviesData.call(page, config.apiList.top, start, config.count);
+    page.setData({
+      start: start
+    })
   },
   onShareAppMessage: function() {
     // 用户点击右上角分享

@@ -1,0 +1,36 @@
+.contain{
+    width: 100%;
+    padding: 27rpx;
+    color: white;
+    font-size: 32rpx;
+}
+.skin{
+    width: 697rpx;
+    height: 380rpx;
+    margin-bottom: 27rpx;
+    position: relative;
+}
+.skin-image{
+    width: 100%;
+    height: 380rpx;
+    background-size:cover;
+    background-position:center;
+    border-radius: 15rpx;
+}
+.skin-name{
+    width:99%;
+    height:80rpx;
+    position:absolute;
+    left:0;
+    bottom:0;
+    background-color:rgba(0, 0, 0, 0.7);
+    border-radius:0 0 15rpx 15rpx;
+    line-height:80rpx;
+    padding-left:40rpx;
+    box-sizing:border-box;
+    margin:4rpx 4rpx;
+}
+.skin-border{
+    border: 5rpx solid green;
+    box-sizing: border-box;
+}

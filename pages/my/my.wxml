@@ -1,17 +1,19 @@
-<view class="contain">
-    <view class="bg-image"></view>
-    <view class="userInfo">
-        <view class="user-image"></view>
-        <view class="user-name">果冻</view>
-        <view class="user-position">user-position</view>
-    </view>
-    <view class="skinButton">换</view>
-</view>
-<view class="ListView">
-    <block wx:for="{{viewList}}">
-        <view class="gid">
-            <view class="list-icon {{item.name}}"></view>
-            <view class="list-title">{{item.znName}}</view>
+<view>
+    <view class="contain">
+        <view class="bg-image"style="background-image: url({{bgImage}})"></view>
+        <view class="userInfo">
+            <view class="user-image"></view>
+            <view class="user-name">果冻</view>
+            <view class="user-position">user-position</view>
         </view>
-    </block>
+        <view class="skinButton" bindtap="toSkinList">换</view>
+    </view>
+    <view class="ListView">
+        <block wx:for="{{viewList}}">
+            <view class="gid">
+                <view class="list-icon {{item.name}}"></view>
+                <view class="list-title">{{item.znName}}</view>
+            </view>
+        </block>
+    </view>
 </view>

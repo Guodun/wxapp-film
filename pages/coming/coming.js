@@ -11,25 +11,14 @@ Page({
   onLoad:function(options){
     // 生命周期函数--监听页面加载
     wx.showToast({
-        title: '玩命加载中..',
-        icon: 'loading',
-        duration: 10000,
-        success: function(){
-            console.log('--------loadingsuccess-------')
-        },
-        fail: function() {
-            console.log('----loadingfail-----')
-        },
-        complete: function() {
-            console.log('-----loadingcomplete-----')
-            wx.hideToast();
-        }
-    })  
+      title: 'loading...',
+      icon: 'loading',
+      duration: 4000
+    })
     douban.getMoviesData.call(this, config.apiList.coming, this.data.start, config.count);
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
-    wx.hideToast();
   },
   onShow:function(){
     // 生命周期函数--监听页面显示
@@ -49,8 +38,17 @@ Page({
   onReachBottom: function() {
     // 页面上拉触底事件的处理函数
     var page = this;
+    var start = page.data.start + 5;
+    wx.showToast({
+      title: 'loading...',
+      icon: 'loading',
+      duration: 4000
+    })
     console.log('-----------------onReachBottom----------------')
-    douban.getMoviesData.call(page, config.apiList.popular, page.data.start, config.count);
+    douban.getMoviesData.call(page, config.apiList.top, start, config.count);
+    page.setData({
+      start: start
+    })
 
   },
   onShareAppMessage: function() {
