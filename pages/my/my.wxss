@@ -26,18 +26,14 @@
     width: 200rpx;
     height: 200rpx;
     border-radius: 50%;
-    background-image: url("https://static.sesine.com/wechat-weapp-movie/images/user_bg_5.jpg");
     margin: 0 auto;
     margin-top:40rpx;
+    background-position: center;
 }
 .user-name{
     text-align:center;
     font-size:37rpx;
-    margin:15rpx 0;
-}
-.user-position{
-    text-align:center;
-    font-size:27rpx;
+    margin:30rpx 0;
 }
 .skinButton{
     position: absolute;

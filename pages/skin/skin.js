@@ -25,6 +25,8 @@ Page({
   },
   onShow:function(){
     // 生命周期函数--监听页面显示
+    var bgImage = wx.getStorageSync('bgImage');
+    this.setData({nowImage: bgImage});
   },
   onHide:function(){
     // 生命周期函数--监听页面隐藏
@@ -48,9 +50,9 @@ Page({
   },
   changeSkin: function(res){
     console.log(res.currentTarget.dataset.image);
+    // 获取背景图片路径
     var bgImage = res.currentTarget.dataset.image
     wx.setStorageSync('bgImage', bgImage);
-    this.setData({nowImage: bgImage})
     wx.switchTab({
       url: '../my/my' ,
       success: function(res){

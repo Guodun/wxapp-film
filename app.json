@@ -9,7 +9,12 @@
     "pages/my/my",
     "pages/personInfo/personInfo",
     "pages/searchReasult/searchReasult",
-    "pages/skin/skin"
+    "pages/skin/skin",
+    "pages/collect/collect",
+    "pages/browse/browse",
+    "pages/shake/shake",
+    "pages/photo/photo",
+    "pages/setting/setting"
   ],
   "window": {
     "navigationBarBackgroundColor": "#47a86c",

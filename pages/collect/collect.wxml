@@ -1,0 +1,36 @@
+<view class="contain">
+    <view class="navTab">
+        <block wx:for="{{navTab}}">
+            <view class="tabTitle {{currentTab == index? 'switchNavTab' : ''}}" bindtap="switchTap" data-index="{{index}}">{{item}}</view>
+        </block>
+    </view>
+</view>
+
+<view class='movieLists' hidden="{{currentTab == 0? '' : true}}">
+    <block wx:for="{{imagesUrl}}">
+        <view class="movieList">
+            <image class="movieImage" mode="center" src="{{item}}">image</image>
+            <view class="movieData">
+                <view class="line title">极限特工3：终极回归</view>
+                <view class="line ">导演：邹国盾</view>
+                <view class="line">演员：成龙/张艺兴</view>
+                <view class="line">豆瓣评分：6.5分</view>
+                <view class="line">上映年份：2017年</view>       
+            </view>
+        </view>
+    </block>
+</view>
+
+<view class='personLists' hidden="{{currentTab == 1? '' : true}}">
+    <block wx:for="{{imagesUrl}}">
+        <view class='personList'>
+            <view class="personImage" style="background-image: url({{item}})"></view>
+            <view class="movieData">
+                <view class="title">邹国盾</view>
+                <view>Jerry Zou</view>
+                <view>深圳</view>
+                <view>主要作品：笑傲江湖、东方不败、路边野餐、过江龙第一季</view>    
+            </view>
+        </view>
+    </block>
+</view>

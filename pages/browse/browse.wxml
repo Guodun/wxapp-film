@@ -1,0 +1,18 @@
+<view class="contain">
+    <view class="navTab">
+        <block wx:for="{{navTab}}">
+            <view class="tabTitle {{currentTab == index? 'switchNavTab' : ''}}" bindtap="switchTap" data-index="{{index}}">{{item}}</view>
+        </block>
+    </view>
+</view>
+
+
+<!--
+<view class='movieLists'>
+    <block wx:for="{{imagesUrl}}">
+        <view class="movieList">
+            <image class="movieImage" src="{{item}}">image</image>
+            <view>infor</view>
+        </view>
+    </block>
+</view>-->
