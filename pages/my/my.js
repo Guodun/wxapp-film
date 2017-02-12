@@ -79,7 +79,7 @@ Page({
         break;
       case "browse":
         console.log('------tobrowse-----');
-        page.navigate('collect');
+        page.navigate('browse');
         break;
       case "shake":
         console.log('------shake-----');

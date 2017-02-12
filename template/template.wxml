@@ -1,3 +1,4 @@
+<!--电影列表-->
 <template name="moviesList">
 <view class="contain">
     <block wx:for="{{moviesData}}">
@@ -18,4 +19,41 @@
     </view>   
     </block>
 </view>
+</template>
+
+<!--收藏浏览电影列表-->
+<template name="collectList">
+    <view class='movieLists' hidden="{{currentTab == 0? '' : true}}">
+        <block wx:for="{{moviesData}}">
+            <view class="{{currentTab == '0'? 'browseFilmTime' : 'browseTime'}}" hidden="{{currentView == 'browse'? '' : true}}">09:26:13</view>
+            <view class="movieList">
+                <image class="movieImage" mode="center" src="{{item.imageUrl}}"></image>
+                <view class="movieData">
+                    <view class="line title">{{item.title}}</view>
+                    <view class="line ">导演：{{item.directors}}</view>
+                    <view class="line">演员：{{item.casts}}</view>
+                    <view class="line">豆瓣评分：{{item.rating}}分</view>
+                    <view class="line">上映年份：{{item.year}}年</view>       
+                </view>
+            </view>
+        </block>
+    </view>
+</template>
+
+<!--收藏浏览人物列表-->
+<template name='personList'>
+    <view class='personLists' hidden="{{currentTab == 1? '' : true}}">
+        <block wx:for="{{moviesData}}">
+            <view class="{{currentTab == '1'? 'browsePersonTime' : ''}}" hidden="{{currentView == 'browse'? '' : true}}">09:11</view>
+            <view class='personList'>
+                <view class="personImage" style="background-image: url({{item.imageUrl}})"></view>
+                <view class="movieData">
+                    <view class="title">{{item.directors}}</view>
+                    <view>Jerry Zou</view>
+                    <view>深圳</view>
+                    <view>主要作品：笑傲江湖、东方不败、路边野餐、过江龙第一季</view>    
+                </view>
+            </view>
+        </block>
+    </view>
 </template>

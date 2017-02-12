@@ -1,15 +1,11 @@
 Page({
   data:{
-    imagesUrl: [
-      'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2412371389.jpg',
-      'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2412371389.jpg',
-    ],
     navTab: ['电影','人物'],
-    currentTab: '0'
+    currentTab: '0',
+    collectData: []
   },
   onLoad:function(options){
-    // 生命周期函数--监听页面加载
-  
+    this.getCollectStorage();
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
@@ -46,5 +42,21 @@ Page({
   switchTap: function(res){
     console.log(res);
     this.setData({currentTab: res.currentTarget.dataset.index})
+  },
+  getCollectStorage: function(){
+    var page = this;
+    //获取收藏电影
+    wx.getStorage({
+      key: 'filmCollectData',
+      success: function(res){
+        page.setData({moviesData: res.data})
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    });
   }
 })

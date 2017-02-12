@@ -5,15 +5,15 @@ Page({
       'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2412371389.jpg',
     ],
     navTab: ['电影','人物'],
-    currentTab: '0'
+    currentTab: '0',
+    currentView: 'browse'
   },
   onLoad:function(options){
     // 生命周期函数--监听页面加载
-  
+    this.getHistoryData();
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
-
   },
   onShow:function(){
     // 生命周期函数--监听页面显示
@@ -46,5 +46,22 @@ Page({
   switchTap: function(res){
     console.log(res);
     this.setData({currentTab: res.currentTarget.dataset.index})
+  },
+  // 获取浏览过的数据
+  getHistoryData: function(){
+    //电影数据
+    var page = this;
+    wx.getStorage({
+      key: 'filmHistory',
+      success: function(res){
+         page.setData({moviesData: res.data})
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    });
   }
 })

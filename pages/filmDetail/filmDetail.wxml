@@ -3,7 +3,7 @@
     <view class= "backGround"></view>
     <view class="movieImage">
         <image class="filmImag" src="{{filmDetailData.images.large}}"></image>
-        <view class="colletMovie">收藏</view>
+        <view class="colletMovie" bindtap="collectButton">收藏</view>
     </view>
     <view class="movieTest">
         <view class="movieName">{{filmDetailData.title}}</view>

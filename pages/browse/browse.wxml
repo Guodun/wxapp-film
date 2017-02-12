@@ -1,3 +1,5 @@
+<import src="../../template/template.wxml"/>
+
 <view class="contain">
     <view class="navTab">
         <block wx:for="{{navTab}}">
@@ -6,13 +8,11 @@
     </view>
 </view>
 
+<view hidden="{{currentTab == 0? '' : true}}">
+    <template is="collectList" data="{{moviesData,currentTab,currentView}}"/>
+</view>
 
-<!--
-<view class='movieLists'>
-    <block wx:for="{{imagesUrl}}">
-        <view class="movieList">
-            <image class="movieImage" src="{{item}}">image</image>
-            <view>infor</view>
-        </view>
-    </block>
-</view>-->
+<view hidden="{{currentTab == 1? '' : true}}">
+    <view class='browseDay'>2017-01-05</view>
+    <template is="personList" data="{{moviesData,currentTab,currentView}}"/>
+</view>

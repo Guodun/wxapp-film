@@ -8,7 +8,7 @@
         <view class="position">{{filmPersonData.born_place}}</view>
     </view>
 </view>
-<view class="collect">收藏</view> 
+<view class="collect" bindtap="collectButton">收藏</view> 
 <view class="contain">
     <block wx:for="{{filmPersonData.works}}">
         <view class="moviesInfo" bindtap="tofilmDetail" id="{{item.subject.id}}">
