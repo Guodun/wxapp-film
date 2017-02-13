@@ -25,7 +25,7 @@
 <template name="collectList">
     <view class='movieLists' hidden="{{currentTab == 0? '' : true}}">
         <block wx:for="{{moviesData}}">
-            <view class="{{currentTab == '0'? 'browseFilmTime' : 'browseTime'}}" hidden="{{currentView == 'browse'? '' : true}}">09:26:13</view>
+            <view class="{{currentTab == '0'? 'browseFilmTime' : 'browseTime'}}" hidden="{{currentView == 'browse'? '' : true}}">{{item.time}}</view>
             <view class="movieList">
                 <image class="movieImage" mode="center" src="{{item.imageUrl}}"></image>
                 <view class="movieData">
@@ -43,15 +43,15 @@
 <!--收藏浏览人物列表-->
 <template name='personList'>
     <view class='personLists' hidden="{{currentTab == 1? '' : true}}">
-        <block wx:for="{{moviesData}}">
-            <view class="{{currentTab == '1'? 'browsePersonTime' : ''}}" hidden="{{currentView == 'browse'? '' : true}}">09:11</view>
+        <block wx:for="{{personsData}}">
+            <view class="{{currentTab == '1'? 'browsePersonTime' : ''}}" hidden="{{currentView == 'browse'? '' : true}}">{{item.time}}</view>
             <view class='personList'>
-                <view class="personImage" style="background-image: url({{item.imageUrl}})"></view>
+                <view class="personImage" style="background-image: url({{item.avatars.large}})"></view>
                 <view class="movieData">
-                    <view class="title">{{item.directors}}</view>
-                    <view>Jerry Zou</view>
-                    <view>深圳</view>
-                    <view>主要作品：笑傲江湖、东方不败、路边野餐、过江龙第一季</view>    
+                    <view class="title">{{item.name}}</view>
+                    <view class="line">{{item.name_en}}</view>
+                    <view class="line">{{item.born_place}}</view>
+                    <view class="line">主要作品{{item.worksList}}</view>    
                 </view>
             </view>
         </block>

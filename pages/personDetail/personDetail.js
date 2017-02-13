@@ -1,5 +1,6 @@
 var douban = require('../../utils/fetch');
 var config = require('../../utils/config');
+var timedata = require('../../utils/getDate');
 
 Page({
   data:{
@@ -11,12 +12,17 @@ Page({
     var personId = Object.keys(options).toString();
     //获取api数据
     douban.fetchPersonDetail.call(page, config.apiList.personDetail, personId, function cb(data){
-      page.setData({filmPersonData: data});
+      page.setData({
+        filmPersonData: data,
+        });
       console.log(data);
+      //浏览纪录
+      page.personHistory();
     });
     //判断是否收藏
     page.isCollect();
-
+    //浏览日期
+    page.personHistoryDate();
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
@@ -69,7 +75,6 @@ Page({
   },
   //收藏按钮
   collectButton: function(res){
-    console.log('----------collectButton---------------');
     var page = this;
     //判断是否收藏，是则删除，没有则增加
     wx.getStorage({
@@ -88,7 +93,7 @@ Page({
             key: 'personCollectData',
             data: collectData,
             success: function(res){
-              page.setData({isCollect: true});
+              page.setData({isCollect: false});
             },
             fail: function() {
               // fail
@@ -104,7 +109,7 @@ Page({
             key: 'personCollectData',
             data: collectData,
             success: function(res){
-              // success
+              page.setData({isCollect: true});
             },
             fail: function() {
               // fail
@@ -123,6 +128,7 @@ Page({
       }
     })
   },
+  //判断是否收藏
   isCollect: function(){
     var page = this;
     wx.getStorage({
@@ -142,32 +148,76 @@ Page({
       }
     });
   },
-  // getCollectData: function(){
-  //   console.log()
-  //   wx.getStorage({
-  //     key: 'personCollectData',
-  //     success: function(res){
-  //       debugger;
-  //       wx.setStorage({
-  //         key: 'personCollectData',
-  //         data: page.data.filmPersonData,
-  //         success: function(res){
-  //           // success
-  //         },
-  //         fail: function() {
-  //           // fail
-  //         },
-  //         complete: function() {
-  //           // complete
-  //         }
-  //       })
-  //     },
-  //     fail: function() {
-  //       // fail
-  //     },
-  //     complete: function() {
-  //       // complete
-  //     }
-  //   })
-  // }
+  //浏览人物纪录
+  personHistory: function(){
+    var page = this;
+    wx.getStorage({
+      key: 'personHistory',
+      success: function(res){
+        // 判断是否浏览
+        var personHistoryData = res.data;
+        // 已浏览，更新数据
+        for( let i = 0; i < res.data.length; i++){
+          if( res.data[i].id == page.data.filmPersonData.id ){
+            console.log('------alreadySee----------');
+            personHistoryData.splice(i,1);
+            personHistoryData.unshift(page.data.filmPersonData);
+            wx.setStorage({
+              key: 'personHistory',
+              data: personHistoryData,
+              success: function(res){
+                // success
+              },
+              fail: function() {
+                // fail
+              },
+              complete: function() {
+                // complete
+              }
+            });
+            return;
+          };
+        };
+        // 未浏览，添加数据
+        personHistoryData.unshift(page.data.filmPersonData);
+        console.log('----------notSee-----------');
+        wx.setStorage({
+          key: 'personHistory',
+          data: personHistoryData,
+          success: function(res){
+            // success
+          },
+          fail: function() {
+            // fail
+          },
+          complete: function() {
+            // complete
+          }
+        });
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
+  // 浏览人物日期
+  personHistoryDate: function(){
+    var date = timedata.getDate();
+    wx.setStorage({
+      key: 'date',
+      data: date,
+      success: function(res){
+        console.log(res);
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  }  
 })

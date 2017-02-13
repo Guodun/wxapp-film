@@ -1,9 +1,5 @@
 Page({
   data:{
-    imagesUrl: [
-      'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2412371389.jpg',
-      'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2412371389.jpg',
-    ],
     navTab: ['电影','人物'],
     currentTab: '0',
     currentView: 'browse'
@@ -49,12 +45,25 @@ Page({
   },
   // 获取浏览过的数据
   getHistoryData: function(){
+    //浏览电影日期
+    wx.getStorage({
+      key: 'date',
+      success: function(res){
+        page.setData({date: res.data});
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
     //电影数据
     var page = this;
     wx.getStorage({
       key: 'filmHistory',
       success: function(res){
-         page.setData({moviesData: res.data})
+         page.setData({moviesData: res.data});
       },
       fail: function() {
         // fail
@@ -63,5 +72,18 @@ Page({
         // complete
       }
     });
+    //任务数据
+    wx.getStorage({
+      key: 'personHistory',
+      success: function(res){
+        page.setData({personsData: res.data})
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   }
 })

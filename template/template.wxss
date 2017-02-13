@@ -45,3 +45,6 @@
     padding: 0 2rpx;
     color:#666;
 }
+.line{
+    margin-bottom: 15rpx;
+}

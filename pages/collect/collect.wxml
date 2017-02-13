@@ -9,4 +9,4 @@
 </view>
 
 <template is="collectList" data="{{moviesData,currentTab}}"/>
-<template is="personList" data="{{moviesData,currentTab}}"/>
+<template is="personList" data="{{personsData,currentTab}}"/>

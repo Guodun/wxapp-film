@@ -76,12 +76,12 @@ App({
     });
 
     wx.getStorageInfo({
-      key: 'filmHistory',
+      key: 'personHistory',
       success: function(res){
         //人物浏览记录
-        if(!('filmHistory' in res.keys)){
+        if(!('personHistory' in res.keys)){
           wx.setStorage({
-            key: 'filmHistory',
+            key: 'personHistory',
             data: [],
             success: function(res){
               console.log('----------setinitStorage--------')

@@ -5,7 +5,7 @@ Page({
     collectData: []
   },
   onLoad:function(options){
-    this.getCollectStorage();
+    this.getFilmStorage();
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成
@@ -43,13 +43,13 @@ Page({
     console.log(res);
     this.setData({currentTab: res.currentTarget.dataset.index})
   },
-  getCollectStorage: function(){
+  getFilmStorage: function(){
     var page = this;
     //获取收藏电影
     wx.getStorage({
       key: 'filmCollectData',
       success: function(res){
-        page.setData({moviesData: res.data})
+        page.setData({moviesData: res.data});
       },
       fail: function() {
         // fail
@@ -58,5 +58,19 @@ Page({
         // complete
       }
     });
+    //获取收藏电影人物
+    wx.getStorage({
+      key: 'personCollectData',
+      success: function(res){
+        console.log(res);
+        page.setData({personsData: res.data});
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   }
 })

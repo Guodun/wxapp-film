@@ -1,5 +1,6 @@
 var douban = require('../../utils/fetch');
 var config = require('../../utils/config');
+var timedata = require('../../utils/getDate');
 
 Page({
   data:{
@@ -20,6 +21,8 @@ Page({
     //请求电影详情api, 获取数据
     var moviesId = Object.keys(options).toString(); //电影id
     douban.fetchFilmDetail.call(page, config.apiList.filmDetail, moviesId, function cb(data){
+      var time = timedata.getTime();
+      data.time = time;
       page.setData({ filmDetailData: data })
       page.processFilmData(data);
       page.filmHistory();
@@ -111,6 +114,7 @@ Page({
     var title = filmData.title;//电影名字
     var imageUrl = filmData.images.large//海报
     var movieId = filmData.id// 电影id
+    var time = timedata.getTime(); //浏览时间
     //收藏的电影数据
     var filmCollectData ={
       directors: directors,
@@ -119,7 +123,8 @@ Page({
       year: year,
       imageUrl: imageUrl,
       title: title,
-      movieId: movieId
+      movieId: movieId,
+      time: time,
     };
     page.setData({
       directors: directors,
