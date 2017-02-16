@@ -72,5 +72,19 @@ Page({
         // complete
       }
     })
+  },
+  toPopularView: function(res){
+    wx.switchTab({
+      url: '../popular/popular',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   }
 })

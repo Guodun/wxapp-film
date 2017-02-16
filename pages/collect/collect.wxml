@@ -8,5 +8,25 @@
     </view>
 </view>
 
-<template is="collectList" data="{{moviesData,currentTab}}"/>
-<template is="personList" data="{{personsData,currentTab}}"/>
+<view hidden='{{currentTab == 0 ? "" : true }}'>
+    <view class="null-view">
+        <block wx:if='{{moviesData.length == 0}}'>
+            <view class="null-tip" >亲，你还没有收藏电影</view>
+        <button type="primary" class="navButton" bindtap="toPopularView">去逛逛</button>
+        </block>
+        <block wx:else>
+            <template is="collectList" data="{{moviesData,currentTab}}"/>
+        </block>
+    </view>
+</view>
+<view hidden='{{currentTab == 1 ? "" : true }}'>
+    <view class="null-view">
+        <block wx:if='{{personsData.length == 0}}'>
+            <view class="null-tip">亲，你还没有收藏任务</view>
+        <button type="primary" class="navButton" bindtap="toPopularView">>去逛逛</button>
+        </block>
+        <block wx:else>
+            <template is="collectList" data="{{moviesData,currentTab}}"/>
+        </block>
+    </view>
+</view>

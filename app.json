@@ -14,7 +14,12 @@
     "pages/browse/browse",
     "pages/shake/shake",
     "pages/photo/photo",
-    "pages/setting/setting"
+    "pages/setting/setting",
+    "pages/setting/settingView/about/about",
+    "pages/setting/settingView/userInfo/userInfo",
+    "pages/setting/settingView/phoneInfo/phoneInfo",
+    "pages/setting/settingView/clearStorage/clearStorage",
+    "pages/setting/settingView/position/position"
   ],
   "window": {
     "navigationBarBackgroundColor": "#47a86c",
@@ -24,6 +29,7 @@
     "backgroundTextStyle": "dark",
     "enablePullDownRefresh": true
   },
+
   "tabBar": {
     "color": "#686868",
     "selectedColor": "#47a86c",
@@ -34,7 +40,8 @@
       "iconPath": "icon/popular_icon.png",
       "selectedIconPath": "icon/popular_active_icon.png",
       "text": "热映"
-    }, {
+    }, 
+    {
       "pagePath": "pages/coming/coming",
       "iconPath": "icon/coming_icon.png",
       "selectedIconPath": "icon/coming_active_icon.png",

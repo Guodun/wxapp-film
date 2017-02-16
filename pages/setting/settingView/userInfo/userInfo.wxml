@@ -4,9 +4,10 @@
             <block wx:for="{{item}}">
                     <view class="{{item.access ? 'cellsItem' : 'phoneItem'}}" bindtap="toViews" data-url="{{item.urlName}}">
                         <view class="title">{{item.title}}</view>
-                        <view class="icon"></view>
+                        <view class="placeHolder">未填写</view>
                     </view>
             </block>
         </view>
     </block>
+    <view class="editBtn" bindtap="{{editInfo}}">编辑</view>
 </view>

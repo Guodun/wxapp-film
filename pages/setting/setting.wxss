@@ -1,0 +1,57 @@
+page{
+    height: 100%;
+}
+.contain{
+    background-color: #eee;
+    height: 100%;
+    padding: 20rpx 0;
+}
+.cell{
+    margin-bottom: 20rpx;
+    font-size: 32rpx;
+}
+.cellsItem{
+    width: 100%;
+    height: 90rpx;
+    background-color: white;
+    box-sizing: border-box;
+    padding-left: 50rpx;
+    line-height: 90rpx;
+    font-size: 32rpx;
+    position: relative;
+}
+.phoneItem{
+    width: 100%;
+    height: 90rpx;
+    background-color: white;
+    box-sizing: border-box;
+    padding-left: 50rpx;
+    line-height: 90rpx;
+    position: relative;
+}
+.phoneItem::before{
+    content: '';
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    height: 1px;
+    transform: scaleY(0.5);
+    background-color: #e5e5e5;
+}
+.title{
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+}
+.icon{
+    position: absolute;
+    top: 37rpx;
+    right: 49rpx;
+    display:inline-block;
+    height:10px;
+    width:10px;
+    border-width:2px 2px 0 0;
+    border-color:#C8C8CD;
+    border-style:solid;
+    transform:matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}

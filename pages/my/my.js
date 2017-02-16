@@ -20,7 +20,7 @@ Page({
     this.setData({
       avatarUrl: app.globalData.userInfo.avatarUrl,
       nickName: app.globalData.userInfo.nickName
-      })
+      });
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成

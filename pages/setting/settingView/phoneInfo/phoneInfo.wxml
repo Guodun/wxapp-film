@@ -4,7 +4,7 @@
             <block wx:for="{{item}}">
                     <view class="{{item.access ? 'cellsItem' : 'phoneItem'}}" bindtap="toViews" data-url="{{item.urlName}}">
                         <view class="title">{{item.title}}</view>
-                        <view class="icon"></view>
+                        <view class="placeHolder">{{item.info}}</view>
                     </view>
             </block>
         </view>

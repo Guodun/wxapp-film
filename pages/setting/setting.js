@@ -1,6 +1,11 @@
 Page({
   data:{
-
+    cells: [
+      [{title: '个人资料', access: true, urlName: 'userInfo'}],
+      [{title: '手机信息', access: false, urlName: 'phoneInfo'},{title:'清除缓存', access: false, urlName: 'clearStorage'}],
+      [{title: '更新位置', access: true, urlName: 'position'}],
+      [{title: '关于', access: true, urlName: 'about'}]
+      ]
   },
   onLoad:function(options){
     // 生命周期函数--监听页面加载
@@ -37,5 +42,46 @@ Page({
       desc: 'desc', // 分享描述
       path: 'path' // 分享路径
     }
+  },
+  toViews: function(res){
+    var page = this;
+    switch(res.currentTarget.dataset.url){
+      case "userInfo":
+        console.log('------userInfo-----');
+        page.navigate('userInfo');
+        break;
+      case "phoneInfo":
+        console.log('------phoneInfo-----');
+        page.navigate('phoneInfo');
+        break;
+      case "clearStorage":
+        console.log('------clearStorage-----');
+        page.navigate('clearStorage');
+        break;
+      case "position":
+        console.log('------position-----');
+        page.navigate('position');
+        break;
+      case "about":
+        console.log('------about-----');
+        page.navigate('about');
+        break;
+      default:
+        console.log('-----about-----');
+    }
+  },
+  navigate: function(url){
+    wx.navigateTo({
+      url: 'settingView/' + url +'/' +url,
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   }
 })

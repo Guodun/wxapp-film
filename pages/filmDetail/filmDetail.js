@@ -82,13 +82,13 @@ Page({
   //点击人物图片跳转至电影人物页面
   toPersonDetail: function(res){
     var personId = res.currentTarget.id;
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../personDetail/personDetail?' + personId,
       success: function(res){
-        // success
+        console.log('------toPersonDetail-------');
       },
       fail: function() {
-        // fail
+        console.log('------toPersonDetailFail-------')
       },
       complete: function() {
         // complete

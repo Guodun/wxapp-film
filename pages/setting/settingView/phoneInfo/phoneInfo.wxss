@@ -1,0 +1,19 @@
+@import "../../setting.wxss";
+.cellsItem::before{
+    content: '';
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    height: 1px;
+    transform: scaleY(0.5);
+    background-color: #e5e5e5;
+}
+.placeHolder{
+    position: absolute;
+    top: 0rpx;
+    right: 49rpx;
+    display:inline-block;
+    height:90rpx;
+    line-height: 90rpx;
+    color:#C8C8CD;
+}
