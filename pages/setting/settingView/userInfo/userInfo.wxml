@@ -9,5 +9,5 @@
             </block>
         </view>
     </block>
-    <view class="editBtn" bindtap="{{editInfo}}">编辑</view>
+    <view class="editBtn" bindtap="editInfo" type="primary">编辑</view>
 </view>

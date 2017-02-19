@@ -53,7 +53,19 @@ Page({
       path: 'path' // 分享路径
     }
   },
-  editInfo: function(){
-    
+  editInfo: function(res){
+    console.log('------------toedit----------')
+    wx.navigateTo({
+      url: '../editUserInfo/editUserInfo',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   }
 })

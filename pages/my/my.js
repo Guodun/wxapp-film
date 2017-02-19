@@ -6,7 +6,6 @@ Page({
     viewList:[
       {znName: '收藏', name: 'collect'},
       {znName: '浏览记录', name: 'browse'},
-      {znName: '摇一摇', name: 'shake'},
       {znName: '相册', name: 'photo' },
       {znName: '设置', name: 'setting'}
     ],

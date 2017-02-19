@@ -1,9 +1,9 @@
 <view class="contain">
     <form class="search" bindsubmit="formSubmit">
         <view class="searchBorder">
-            <view class="tapButton">tap</view>
-            <input class="searchInput" placeholder-style="line-height: 80rpx " placeholder="searchMovies" name="input"/>
-            <button class="searchButton" formType="submit" bindtap="toSearchReasultView">search</button>
+            <view class="tapButton">默认</view>
+            <input class="searchInput" placeholder-style="line-height: 80rpx " placeholder="请输入电影名字" name="input"/>
+            <button class="searchButton" formType="submit" bindtap="toSearchReasultView">搜索</button>
         </view>
     </form>
     <view class="hotTag">

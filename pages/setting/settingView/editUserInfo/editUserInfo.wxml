@@ -1,0 +1,64 @@
+<view class="contain">
+    <form bindsubmit="formsubmit">
+        <view class="list">
+            <view class="title">姓名</view>
+            <view class="input">
+                <input  class="input" name="name" placeholder="请输入姓名" maxlength="10"/>
+            </view>
+        </view>
+        <view class="list">
+            <view class="title">昵称</view>
+            <view class="input">
+                <input class="input" name="nikname" placeholder="请输入昵称" maxlength="10"/>
+            </view>
+        </view>
+        <view class="list">
+            <view class="title">性别</view>
+            <view class="input">
+                 <picker range="{{sex}}" value="{{index}}" bindchange="bindPickerChange">
+                    <block wx:if="{{selectSex == ''}}">
+                        <view class="input palceholder">请选择性别</view>
+                    </block>
+                    <block wx:else>
+                        <view class="">{{sex[index]}}</view>
+                    </block>
+                 </picker>
+            </view>
+        </view>
+        <view class="list">
+            <view class="title">年龄</view>
+            <view class="input">
+                <input class="input" type="number" name="age" placeholder="请输入年龄" maxlength="2"/>
+            </view>
+        </view>
+        <view class="list">
+            <view class="title">生日</view>
+            <view class="input">
+                 <picker mode="date" value="{{selectBrth}}" start="1970-01-01" end="2017-09-01" bindchange="bindDateChange">
+                    <block wx:if="{{selectBrth == ''}}">
+                        <view class="input palceholder">请选择生日</view>
+                    </block>
+                    <block wx:else>
+                        <view class="">{{selectBrth}}</view>
+                    </block>
+                 </picker>
+            </view>
+        </view>
+        <view class="list">
+            <view class="title">星座</view>
+            <view class="input">
+                 <picker range="{{sign}}" value="{{signIndex}}" bindchange="bindSingChange">
+                    <block wx:if="{{selectSing == ''}}">
+                        <view class="input palceholder">请选择星座</view>
+                    </block>
+                    <block wx:else>
+                        <view class="">{{sign[signIndex]}}</view>
+                    </block>
+                 </picker>
+            </view>
+        </view>
+
+
+        <button  formType="submit" class="save-btn">保存</button>
+    </form>
+</view>

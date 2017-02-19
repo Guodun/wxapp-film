@@ -19,7 +19,8 @@
     "pages/setting/settingView/userInfo/userInfo",
     "pages/setting/settingView/phoneInfo/phoneInfo",
     "pages/setting/settingView/clearStorage/clearStorage",
-    "pages/setting/settingView/position/position"
+    "pages/setting/settingView/position/position",
+    "pages/setting/settingView/editUserInfo/editUserInfo"
   ],
   "window": {
     "navigationBarBackgroundColor": "#47a86c",
@@ -42,7 +43,7 @@
       "text": "热映"
     }, 
     {
-      "pagePath": "pages/coming/coming",
+      "pagePath": "pages/setting/settingView/userInfo/userInfo",
       "iconPath": "icon/coming_icon.png",
       "selectedIconPath": "icon/coming_active_icon.png",
       "text": "待映"

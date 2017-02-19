@@ -12,6 +12,8 @@ Page({
     var personId = Object.keys(options).toString();
     //获取api数据
     douban.fetchPersonDetail.call(page, config.apiList.personDetail, personId, function cb(data){
+      var worksList = page.processData(data);
+      data.worksList = worksList;
       page.setData({
         filmPersonData: data,
         });
@@ -219,5 +221,15 @@ Page({
         // complete
       }
     })
-  }  
+  },
+  //处理数据，获取人物电影作品
+  processData: function(data){
+    console.log(data);
+    var tempWorks = ''
+    for( let i = 0; i < data.works.length; i++){
+      tempWorks += data.works[i].subject.title + '、';
+    }
+    var worksList = tempWorks.slice(0, tempWorks.length-1);
+    return worksList;
+  }
 })

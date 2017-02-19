@@ -27,7 +27,6 @@ Page({
         }
     })  
     douban.searchFilm.call(this, config.apiList.search, searchword, config.count);
-    debugger;
   },
   onReady:function(){
     // 生命周期函数--监听页面初次渲染完成

@@ -1,1 +1,24 @@
-/* pages/photo/photo.wxss */
+@import "../collect/collect.wxss";
+
+page{
+    height: 100%;
+    width: 100%;
+}
+.contain{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.cell{
+    width: 250rpx;
+    height: 250rpx;
+}
+.UploadBtn{
+    width: 160rpx;
+    margin-top: 50rpx;
+}
+.cell-image{
+    width: 100%;
+    height: 100%;
+}

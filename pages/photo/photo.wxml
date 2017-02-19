@@ -1,1 +1,14 @@
-<view>photo</view>
+<block wx:if="{{pitcure.length == 0}}">
+    <view class="null-tip" style="margin: 0 auto">亲，你还没有上传图片</view>
+    <button type="primary" class="UploadBtn" bindtap="uploadImage">上传</button>
+</block>
+<block wx:else>
+    <view class="contain">
+        <block wx:for="{{pitcure}}">
+            <view class="cell">
+                <image mode="scaleToFill" class="cell-image" src="{{item}}"></image>
+            </view>
+        </block>
+    </view>
+    <button type="primary" class="UploadBtn" bindtap="uploadImage">上传</button>
+</block>
