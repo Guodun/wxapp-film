@@ -43,7 +43,7 @@
       "text": "热映"
     }, 
     {
-      "pagePath": "pages/setting/settingView/userInfo/userInfo",
+      "pagePath": "pages/coming/coming",
       "iconPath": "icon/coming_icon.png",
       "selectedIconPath": "icon/coming_active_icon.png",
       "text": "待映"
